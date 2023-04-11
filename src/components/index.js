@@ -1,0 +1,11 @@
+export { default as Header } from './Header';
+export {default as AllPosts } from  './AllPosts';
+export {default as LoginPage } from  './LoginPage';
+export {default as SearchBar } from  './SearchBar';
+export {default as SinglePostView } from  './SinglePostView';
+//export {default as PostLists } from  './PostLists';
+// export {default as  } from  './';
+// export {default as  } from  './';
+// export {default as  } from  './';
+// export {default as  } from  './';
+// export {default as  } from  './';

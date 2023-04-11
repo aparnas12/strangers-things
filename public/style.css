@@ -1,0 +1,44 @@
+
+body {
+   
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+  }
+
+  #main {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    
+    font-family: 'Raleway', Arial, sans-serif;
+  }
+
+  label {
+    text-align: right;
+    clear: both;
+    float:left;
+    margin-right:15px;
+}
+
+/* form {
+  display:flex;
+  flex-direction:column;
+  align-items: center;
+} */
+
+#edit-post-form{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items:center;
+  font-size: x-large;
+  border: 2px solid teal;
+}
+.user-post-preview{
+  display: flex;
+  border: 3px black;
+  flex-direction: column;
+  justify-content: center;
+  padding: 10px;
+}
