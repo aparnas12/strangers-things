@@ -1,14 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom';
 import Header from './Header';
-import AddNewPost from './AddNewPost'
-import AllPosts from './AllPosts';
-import SinglePostView from './SinglePostView';
-import EditPost from './EditPost';
-import MessagePreview from './MessagePreview'
-import Profile from './Profile'
+// import AddNewPost from './AddNewPost'
+// import SinglePostView from './SinglePostView';
+// import EditPost from './EditPost';
+import{ Routes, Route } from 'react-router-dom';
+import { LoginPage, Profile, AllPosts, Home } from '.';
 import { getAllPosts } from '../api';
-
 
 const Main = () => {
 
@@ -34,13 +32,17 @@ useEffect(() => {
   return (
     <div id="main">
         <Header />
-        <LoginPage token={token}
+        <Routes>
+          <Route path='/LoginPage' element={<LoginPage token={token}
           setToken={setToken} 
           currentUser={currentUser} 
           setCurrentUser={setCurrentUser} 
           isLoggedIn={isLoggedIn}
-              setIsLoggedIn={setIsLoggedIn} />
-
+              setIsLoggedIn={setIsLoggedIn} />}/>
+          <Route path='/Profile' element={<Profile/>}/>
+          <Route path='/' element={<Home/>}/>
+          <Route path='AllPosts' element={<AllPosts postsList={postsList} setPostsList={setPostsList}/>}/>
+</Routes>
         {/* <AllPosts postsList = {postsList} setPostsList ={setPostsList} isLoggedIn={isLoggedIn} currentUser={currentUser}/> */}
        
     </div>
