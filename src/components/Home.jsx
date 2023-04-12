@@ -3,20 +3,32 @@ import AllPosts from "./AllPosts";
 
 const Home = (props) => {
 
-    const {isLoggedIn,currentUser,postsList,setPostsList} =props;
-
+    const {isLoggedIn,currentUser} =props;
+    console.log(isLoggedIn);
+    console.log(currentUser);
     return (
-      isLoggedIn? (
       <>
-      <h1> Hello {currentUser.username}, Welcome back</h1>
-      <AllPosts  postsList={postsList}
-            setPostsList={setPostsList}
-            isLoggedIn={isLoggedIn}
-            currentUser={currentUser}/>
+      {isLoggedIn ? <h2>Hello {currentUser}, Welcome back</h2>
+      :
+      <h2>Welcome! Please login to get started</h2>
+ 
+}
       </>
-      
-      )
-      : <h1>Welcome! Please login to get started</h1>
+
     );
+  
 }
 export default Home;
+
+{/* <AllPosts  postsList={postsList}
+setPostsList={setPostsList}
+isLoggedIn={isLoggedIn}
+currentUser={currentUser}/> */}
+
+{/* <h2> Hello {currentUser.username}, Welcome back</h2>
+   
+     
+      
+      
+: <h2>Welcome! Please login to get started</h2>
+} */}
