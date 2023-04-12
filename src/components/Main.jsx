@@ -17,7 +17,7 @@ const Main = () => {
   const [currentUser,setCurrentUser] = useState(null);
   const [token, setToken] = useState('');
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-
+//random comment
 
 useEffect(() => {
     const getPosts = async () => {
