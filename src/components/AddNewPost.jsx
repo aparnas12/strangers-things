@@ -7,7 +7,7 @@ const AddNewPost = () => {
             <label htmlFor=" title">Title</label>
             <input type ="text" name ="title" value ="" placeholder="Title" required/>
             <input type ="text" name ="description" value ="" placeholder="Description" required/>
-            <input type ="number" name ="price" required/>
+            <input type ="text" name ="price" required/>
             <input type ="text" name ="location" value ="" placeholder="Enter a location"/>  
             <button id ='create-post'>CREATE</button>
         </form>
