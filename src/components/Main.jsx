@@ -5,7 +5,7 @@ import Header from './Header';
 // import SinglePostView from './SinglePostView';
 // import EditPost from './EditPost';
 import{ Routes, Route } from 'react-router-dom';
-import { LoginPage, Profile, AllPosts, Home } from '.';
+import { LoginPage, Profile, AllPosts, Home, EditPost, AddNewPost, SinglePostView, SendMessageView } from '.';
 import { getAllPosts } from '../api';
 
 const Main = () => {
@@ -42,6 +42,11 @@ useEffect(() => {
           <Route path='/Profile' element={<Profile postsList={postsList} setPostsList={setPostsList}/>}/>
           <Route path='/' element={<Home/>}/>
           <Route path='AllPosts' element={<AllPosts postsList={postsList} setPostsList={setPostsList}/>}/>
+          <Route path='SinglePostView' element={<SinglePostView postsList={postsList} setPostsList={setPostsList}/>}/>
+          <Route path='EditPost' element={<EditPost postsList={postsList} setPostsList={setPostsList}/>}/>
+          <Route path='AddNewPost' element={<AddNewPost postsList={postsList} setPostsList={setPostsList}/>}/>
+          <Route path='SendMessageView' element={<SendMessageView postsList={postsList} setPostsList={setPostsList}/>}/>
+
 </Routes>
         {/* <AllPosts postsList = {postsList} setPostsList ={setPostsList} isLoggedIn={isLoggedIn} currentUser={currentUser}/> */}
        
