@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom';
-import LoginPage from './LoginPage';
 import Header from './Header';
 import AddNewPost from './AddNewPost'
 import AllPosts from './AllPosts';
