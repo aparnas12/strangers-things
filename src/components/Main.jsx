@@ -35,10 +35,10 @@ useEffect(() => {
     <div id="main">
         <Header />
         <LoginPage token={token}
-              setToken={setToken}
-              currentUser={currentUser}
-              setCurrentUser={setCurrentUser}
-              isLoggedIn={isLoggedIn}
+          setToken={setToken} 
+          currentUser={currentUser} 
+          setCurrentUser={setCurrentUser} 
+          isLoggedIn={isLoggedIn}
               setIsLoggedIn={setIsLoggedIn} />
 
         {/* <AllPosts postsList = {postsList} setPostsList ={setPostsList} isLoggedIn={isLoggedIn} currentUser={currentUser}/> */}

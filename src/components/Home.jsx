@@ -19,3 +19,4 @@ const Home = (props) => {
       : <h1>Welcome! Please login to get started</h1>
     );
 }
+export default Home;
