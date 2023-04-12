@@ -4,7 +4,7 @@ import SinglePostView from "./SinglePostView";
 import { useState } from "react";
 
 const AllPosts = (props) => {
-    const {postsList, setPostsList} = props;
+    const {postsList, setPostsList,isLoggedIn,currentUser} = props;
     const [returnedPostList, setReturnedPostList] = useState([]);
 
     console.log(returnedPostList);
@@ -16,9 +16,9 @@ const AllPosts = (props) => {
                 <div id='all-posts-container'>
                 {returnedPostList.map((post,index) => {
                     return (
-                    <>
-                        <SinglePostView key={index} post = {post} />
-                    </>
+                    <div key={index}>
+                        <SinglePostView  post = {post} isLoggedIn = {isLoggedIn} currentUser ={currentUser}/>
+                    </div>
                     );
                     })}
                 </div>
@@ -26,9 +26,9 @@ const AllPosts = (props) => {
                 <div id='all-posts-container'>
                 {postsList.map((post,index) => {
                 return (
-                <>
-                    <SinglePostView key={index} post = {post} />
-                </>
+                <div key={index}>
+                    <SinglePostView  post = {post} isLoggedIn ={isLoggedIn} currentUser ={currentUser}/>
+                </div>
                 );
                 })}
             </div>

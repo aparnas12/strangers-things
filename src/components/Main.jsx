@@ -11,7 +11,7 @@ import { getAllPosts } from '../api';
 const Main = () => {
 
   const [postsList, setPostsList]  = useState([]);
-  const [currentUser,setCurrentUser] = useState(null);
+  const [currentUser,setCurrentUser] = useState('');
   const [token, setToken] = useState('');
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 //random comment
@@ -31,17 +31,22 @@ useEffect(() => {
 
   return (
     <div id="main">
-        <Header />
+        <Header 
+        isLoggedIn ={isLoggedIn}
+        setIsLoggedIn={setIsLoggedIn}
+        setCurrentUser={setCurrentUser}
+        setToken={setToken}/>
         <Routes>
+          
           <Route path='/LoginPage' element={<LoginPage token={token}
           setToken={setToken} 
           currentUser={currentUser} 
-          setCurrentUser={setCurrentUser} 
+          setCurrentUser={setCurrentUser}  
           isLoggedIn={isLoggedIn}
               setIsLoggedIn={setIsLoggedIn} />}/>
           <Route path='/Profile' element={<Profile postsList={postsList} setPostsList={setPostsList}/>}/>
-          <Route path='/' element={<Home/>}/>
-          <Route path='AllPosts' element={<AllPosts postsList={postsList} setPostsList={setPostsList}/>}/>
+          <Route path='/Home' element={<Home isLoggedIn ={isLoggedIn} currentUser = {currentUser}/>}/>
+          <Route path='AllPosts' element={<AllPosts postsList = {postsList} setPostsList ={setPostsList} isLoggedIn={isLoggedIn} currentUser={currentUser}/>}/>
           <Route path='SinglePostView' element={<SinglePostView postsList={postsList} setPostsList={setPostsList}/>}/>
           <Route path='EditPost' element={<EditPost postsList={postsList} setPostsList={setPostsList}/>}/>
           <Route path='AddNewPost' element={<AddNewPost postsList={postsList} setPostsList={setPostsList}/>}/>

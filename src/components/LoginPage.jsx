@@ -19,29 +19,27 @@ const LoginPage = ({
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-
-    //create an  userObject
-    // const user = {
-    //   username: {username}, 
-    //   password: {password}
-    // }
-
-   
    //short version of above?
     const userToAuth = { user: { username: username, password: password } };
+    
     const data = await loginUser(userToAuth);
+    console.log(data);
  //if token is returne then a user exist?
+
     if (data.token) {
       setToken(data.token);
+      console.log(data.token);
       setCurrentUser(username);
-      setIsLoggedIn(true);
+      console.log(username);
+      setIsLoggedIn(true); 
+      console.log("is set to true");
+      setUsername('');
+      setPassword('');
+      navigate('/Home'); 
     }
-    setUsername('');
-    setPassword('');
-    navigate('/posts');
+   
+   
   }
-
-
 
   return (
     <>
