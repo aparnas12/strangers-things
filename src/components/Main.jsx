@@ -14,7 +14,9 @@ import { getAllPosts } from '../api';
 const Main = () => {
 
   const [postsList, setPostsList]  = useState([]);
-  //const [currentUser,setCurrentUser] = useState(null);
+  const [currentUser,setCurrentUser] = useState(null);
+  const [token, setToken] = useState('');
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
 
 useEffect(() => {
@@ -33,7 +35,14 @@ useEffect(() => {
   return (
     <div id="main">
         <Header />
-        {/* <AllPosts postsList = {postsList} setPostsList ={setPostsList} /> */}
+        <LoginPage token={token}
+              setToken={setToken}
+              currentUser={currentUser}
+              setCurrentUser={setCurrentUser}
+              isLoggedIn={isLoggedIn}
+              setIsLoggedIn={setIsLoggedIn} />
+
+        {/* <AllPosts postsList = {postsList} setPostsList ={setPostsList} isLoggedIn={isLoggedIn} currentUser={currentUser}/> */}
        
     </div>
   );
@@ -43,6 +52,11 @@ export default Main;
 
 {/* <Profile postsList = {postsList}/>
 <SinglePostView />
-<LoginPage />
+<LoginPage token={token}
+              setToken={setToken}
+              currentUser={currentUser}
+              setCurrentUser={setCurrentUser}
+              isLoggedIn={isLoggedIn}
+              setIsLoggedIn={setIsLoggedIn} />
 <EditPost />
 <AddNewPost /> */}
