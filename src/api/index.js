@@ -12,7 +12,7 @@ export async function getAllPosts() {
   }
 }
 
- export const getMe = async () => {
+ export const getMe = async (token) => {
 
   try {
     const response = await fetch(`${BASE}/users/me`, {
