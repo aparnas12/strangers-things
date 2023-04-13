@@ -6,12 +6,12 @@ const SinglePostView = (props) => {
 
     const {isLoggedIn,currentUser, post,setSelectedPost} = props;
     const navigate = useNavigate();
-// const checkAuthor = (currUser, author) => 
-// {
-//    console.log('currentuser is:', currentUser);
-//    console.log('current author is : ',author);
-//     return (currUser === author );
-// }
+const checkAuthor = (currUser, author) => 
+{
+   console.log('currentuser is:', currentUser);
+   console.log('current author is : ',author);
+    return (currUser === author );
+}
 
     return(
         <>
@@ -23,15 +23,15 @@ const SinglePostView = (props) => {
          <p>Location : {post.location}</p> 
     
           {isLoggedIn ? 
-          // checkAuthor(currentUser, post.author.username) 
-          post.isAuthor
+          checkAuthor(currentUser, post.author.username) 
           ? <button
           onClick = {()=>{
             setSelectedPost(post);
             console.log("I am setting the selected post to :",post.title );
             navigate('/PostDetailedView')
           }}
-          >View Post</button> : <button>Send Message</button> 
+          >View Post</button> 
+          : <button>Send Message</button> 
           : <><br></br></>
           }
         </div>
