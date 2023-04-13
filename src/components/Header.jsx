@@ -9,8 +9,9 @@ const Header = ({ setCurrentUser, setToken, setIsLoggedIn, isLoggedIn }) => {
             <header>
                 <h1> Strangers Things</h1>
                 <nav className="nav-bar">
-                    <NavLink to="/" className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "active" : ""}>Home</NavLink>
+                    <NavLink to="/Home" className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "active" : ""}>Home</NavLink>
                     <NavLink to="/AllPosts" className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "active" : ""}>Posts</NavLink>
+                    <NavLink to="/RegisterUser" className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "active" : ""}>Register</NavLink>
                     <NavLink to="/Profile" className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "active" : ""}>Profile</NavLink>
                     {/* <NavLink to="/LoginPage" className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "active" : ""}>Log Out</NavLink> */}
                     {isLoggedIn ?

@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 const MessageFrom = (props) => {
   const {post} = props
+  
   // const title = props.title
   // const description = props.description
   const navigate = useNavigate();
@@ -23,6 +24,6 @@ const MessageFrom = (props) => {
     );
   }
   
-//comment
+
 
 export default MessageFrom;

@@ -1,6 +1,6 @@
 import React from "react";
-import SinglePostView from "./SinglePostView";
-import { useNavigate } from "react-router-dom";
+import PostDetailedView from "./SinglePostView";
+import { useNavigate, getMe } from "react-router-dom";
 
 
 const MessageTo = (props) => {
@@ -9,7 +9,7 @@ const MessageTo = (props) => {
   // const description = props.description
   const navigate = useNavigate();
   function handleClick(){
-    navigate('/SinglePostView');
+    navigate('/PostDetailedView');
   }
   
     return (

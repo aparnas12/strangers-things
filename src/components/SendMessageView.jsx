@@ -2,15 +2,15 @@ import React from "react";
 
 const SendMessageView = (props) => {
 
-    const {post} = props;
+    const {isLoggedIn,currentUser, selectedPost, setSelectedPost} = props;
     return(
         <>
         <div id = 'single-post-container'>
-         <h3>{post.title}</h3>
-         <p>It works very well</p>
-         <p><b>Price</b> : $</p>
-         <p><strong>Seller : </strong></p>
-         <p>Location :</p> 
+        <h3>{selectedPost.title}</h3>
+         <p>{selectedPost.description}</p>
+         <p><b>Price :</b>{selectedPost.price}</p>
+         <p><strong>Seller : {selectedPost.author.username} </strong></p>
+         <p>Location : {selectedPost.location}</p> 
          <input placeholder="Message Text Here"></input>
          <span><button>Send Message</button></span>
         </div>
