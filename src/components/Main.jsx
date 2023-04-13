@@ -39,9 +39,9 @@ useEffect(() => {
     try{
     if (token) {
     const fetchedUser = await getMe(token);
-   setCurrentUser(fetchedUser.user.username) 
-   setUserPosts(fetchedUser.user.posts)
-   setUserMessages(fetchedUser.user.messages)
+   setCurrentUser(fetchedUser.data.username) 
+   setUserPosts(fetchedUser.data.posts)
+   setUserMessages(fetchedUser.data.messages)
   }
   }
   catch (error) {
