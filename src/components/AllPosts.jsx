@@ -2,22 +2,38 @@ import SearchBar from "./SearchBar";
 import React from "react";
 import SinglePostView from "./SinglePostView";
 import { useState } from "react";
+import AddNewPost from "./AddNewPost";
+import { NavLink, useNavigate } from "react-router-dom";
 
 const AllPosts = (props) => {
-    const {postsList, setPostsList,isLoggedIn,currentUser} = props;
+    const {postsList, setPostsList,isLoggedIn,currentUser,token,selectedPost,setSelectedPost} = props;
     const [returnedPostList, setReturnedPostList] = useState([]);
+    const navigate = useNavigate();
+
+    const handleClick = (logged) =>
+    {
+        console.log("entering handle click for create post" , isLoggedIn);
+        if(logged)
+        {
+            navigate('/AddNewPost');
+        }
+    }
 
     console.log(returnedPostList);
     return (
         <>  <h2> Posts</h2>
-            <SearchBar postsList ={postsList} setReturnedPostList = {setReturnedPostList} />
+            <button
+            onClick={() => {handleClick(isLoggedIn)}}
+            > Add New Post</button>
+            <SearchBar postsList = {postsList} setReturnedPostList = {setReturnedPostList} />
+           
             {
                 returnedPostList.length  ?
                 <div id='all-posts-container'>
                 {returnedPostList.map((post,index) => {
                     return (
                     <div key={index}>
-                        <SinglePostView  post = {post} isLoggedIn = {isLoggedIn} currentUser ={currentUser}/>
+                        <SinglePostView  post = {post} isLoggedIn = {isLoggedIn} currentUser ={currentUser} setSelectedPost ={setSelectedPost}/>
                     </div>
                     );
                     })}
@@ -27,7 +43,7 @@ const AllPosts = (props) => {
                 {postsList.map((post,index) => {
                 return (
                 <div key={index}>
-                    <SinglePostView  post = {post} isLoggedIn ={isLoggedIn} currentUser ={currentUser}/>
+                    <SinglePostView  post = {post} isLoggedIn ={isLoggedIn} currentUser ={currentUser} setSelectedPost ={setSelectedPost}/>
                 </div>
                 );
                 })}
@@ -39,3 +55,14 @@ const AllPosts = (props) => {
 }
 
 export default AllPosts;
+
+   
+            {/* {
+                isLoggedIn ?  < AddNewPost postsList= {postsList} setPostsList = {setPostsList} isLoggedIn = {isLoggedIn} currentUser = {currentUser} token = {token} />
+                : <></>
+            }
+            */}
+
+            // <button
+            // onClick={handleClick(isLoggedIn)}>
+            // Add New Post</button>
