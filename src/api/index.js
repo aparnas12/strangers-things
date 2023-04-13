@@ -60,6 +60,7 @@ export const loginUser = async (userObject) => {
   }
 };
 
+
 export const addNewPost = async (newPostObj, token) => {
   console.log("new post object", newPostObj, "token" , token);
   try {
@@ -72,9 +73,11 @@ export const addNewPost = async (newPostObj, token) => {
       },
       body: JSON.stringify(newPostObj),
     });
+    console.log(response);
     const result = await response.json();
     console.log("The result of addNewPost is: ",result);
-    return result
+    return "result";
+   // return result;
   } catch (err) {
     console.error(err);
   }

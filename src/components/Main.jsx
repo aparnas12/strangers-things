@@ -11,7 +11,7 @@ const Main = () => {
 
   const [postsList, setPostsList]  = useState([]);
   const [currentUser,setCurrentUser] = useState('');
-  const [token, setToken] = useState('');
+  const [token, setToken] = useState(localStorage.getItem("token"));
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [selectedPost, setSelectedPost] = useState({});
   const [userMessages, setUserMessages] = useState([]);
@@ -19,7 +19,7 @@ const Main = () => {
 
 
 useEffect(() => {
-    const getPosts = async () => {
+    const getInitialData = async () => {
       try {
         let allPosts = await getAllPosts();
         console.log("In use effect");
@@ -31,7 +31,7 @@ useEffect(() => {
         console.error(error);
       }
     };
-    getPosts();
+    getInitialData();
   }, []);
   
 useEffect(() => {
