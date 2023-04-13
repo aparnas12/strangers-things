@@ -57,8 +57,8 @@ const handleChange = () => {
     // setPostsList([...postsList,fakePost]);
 
     //real solution should be
-     setPostsList([...postsList,newPost]);
-    navigate('/AllPosts');
+    // setPostsList([...postsList,newPost]);
+   // navigate('/AllPosts');
   }
     return (
         <>
