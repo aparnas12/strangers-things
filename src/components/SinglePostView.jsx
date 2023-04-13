@@ -47,5 +47,7 @@ note to self : when View Post is clicked setSelectedPost to post and then naviga
 now when u reach the detailed you will have access to apost to display details of
 then you should have a delte button that can be clicked to deleet the post 
 
+
+
 */
 
