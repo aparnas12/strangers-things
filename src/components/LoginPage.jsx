@@ -32,7 +32,7 @@ const LoginPage = ({
       setCurrentUser(username);
       console.log(username);
       setIsLoggedIn(true); 
-      console.log("is set to true");
+      console.log("login is set to true");
       setUsername('');
       setPassword('');
       navigate('/Home'); 

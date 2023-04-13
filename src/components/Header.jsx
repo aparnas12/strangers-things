@@ -17,8 +17,10 @@ const Header = ({ setCurrentUser, setToken, setIsLoggedIn, isLoggedIn }) => {
                         <button
                             onClick={() => {
                                 setIsLoggedIn(false);
+                                console.log("login is set to false");
                                 setCurrentUser('');
                                 setToken('');
+                                localStorage.removeItem('currentUser');
                                 localStorage.removeItem('token');
                                 navigate('/Home');
                             }}

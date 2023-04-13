@@ -1,7 +1,11 @@
 export function storeCurrentUser(user) {
-    localStorage.setItem('token', JSON.stringify(token));
+  localStorage.setItem('currentUser, user');
+
   }
   
+  export function storeCurrenToken(token){
+    localStorage.setItem('token', token);
+  }
   export function getCurrentUser() {
     const user = JSON.parse(localStorage.getItem('currentUser'));
     return user;
