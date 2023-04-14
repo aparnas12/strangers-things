@@ -14,7 +14,7 @@ const LoginPage = ({
 }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  console.log(username);
+  
   const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
@@ -23,7 +23,7 @@ const LoginPage = ({
     const userToAuth = { user: { username: username, password: password } };
 
     const data = await loginUser(userToAuth);
-    console.log(data);
+    
     if (!data){
 
       window.alert("Invalid credentials, Username or Password is incorrect");
@@ -32,13 +32,13 @@ const LoginPage = ({
         //if token is returned then the user exists
       if (data.token) {
         setToken(data.token);
-        console.log(data.token);
+        
         setCurrentUser(username);
-        console.log(username);
+        
         localStorage.setItem("currentUser", username);
         localStorage.setItem("token", data.token);
         setIsLoggedIn(true);
-        console.log("login is set to true");
+        
         setUsername('');
         setPassword('');
         navigate('/Home');

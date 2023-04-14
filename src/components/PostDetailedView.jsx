@@ -6,13 +6,12 @@ const PostDetailedView = (props) => {
 
     const {isLoggedIn,currentUser, selectedPost, setSelectedPost,setPostsList,token,postsList} = props;
     console.log("islogged in", isLoggedIn);
-    console.log("currentpost in post  detailed view is :",selectedPost);
+    
 
     const navigate = useNavigate();
     const checkAuthor = (currUser, author) => 
     {
-        console.log('currentuser is:', currentUser);
-      console.log('current author is : ',author);
+
         return (currUser === author );
     }
 
@@ -24,7 +23,7 @@ const PostDetailedView = (props) => {
          <p><b>Price :</b>{selectedPost.price}</p>
          <p><strong>Seller : {selectedPost.author.username} </strong></p>
          <p>Location : {selectedPost.location}</p> 
-         <p> Post Id: {selectedPost._id} </p>
+        
           {isLoggedIn ?
             checkAuthor(currentUser, selectedPost.author.username) ? //exposing the delete button only if the user is logged in and is the author of the post aka current user in the state is the same as the author of the post
               <button

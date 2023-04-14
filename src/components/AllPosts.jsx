@@ -12,14 +12,16 @@ const AllPosts = (props) => {
 
     const handleClick = (logged) =>
     {
-        console.log("entering handle click for create post" , isLoggedIn);
+       // console.log("entering handle click for create post" , isLoggedIn);
         if(logged)
         {
             navigate('/AddNewPost');
         }
+        else{
+            window.alert('Please sign in to add a post!');
+        }
     }
-
-    console.log(returnedPostList);
+   
     return (
         <>  <h2> Posts</h2>
             <button
@@ -56,13 +58,3 @@ const AllPosts = (props) => {
 
 export default AllPosts;
 
-   
-            {/* {
-                isLoggedIn ?  < AddNewPost postsList= {postsList} setPostsList = {setPostsList} isLoggedIn = {isLoggedIn} currentUser = {currentUser} token = {token} />
-                : <></>
-            }
-            */}
-
-            // <button
-            // onClick={handleClick(isLoggedIn)}>
-            // Add New Post</button>
