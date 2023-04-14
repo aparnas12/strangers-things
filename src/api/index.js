@@ -30,6 +30,26 @@ export async function getAllPosts() {
   }
 }
 
+export const postMessage = async (messageObj, token, postId) => {
+  try {
+    const response = await fetch(`${BASE}/posts/${postId}/messages`, {
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`
+      },
+      body: JSON.stringify(
+        messageObj 
+        
+      )
+    });
+    const result = await response.json();
+    console.log(result);
+    return result
+  } catch (err) {
+    console.error(err);
+  }
+}
 
 export const loginUser = async (userObject) => {
   try {
