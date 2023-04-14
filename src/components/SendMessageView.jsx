@@ -5,9 +5,9 @@ import { postMessage } from "../api";
 const SendMessageView = (props) => {
 
     
-    const {isLoggedIn,currentUser, selectedPost, userMessages, userPosts, getMe, token} = props;
+    const {isLoggedIn,currentUser, selectedPost, userMessages, userPosts, getMe, token, setUserMessages} = props;
     const [message, setMessage] = useState('')
-    const  handleSubmit = async(event) => {
+    const  handleClick = async(event) => {
         event.preventDefault();
     
         const messageToSend = {message: 
@@ -16,20 +16,21 @@ const SendMessageView = (props) => {
             
           } 
           };
-        const sentMessage = await postMessage (messageToSend, token);
+        const sentMessage = await postMessage (messageToSend, token, selectedPost._id);
         console.log("Message Sent : ",sentMessage)
        
-        setUserMessages([...UserMessages,sentMessage]);}
+        setUserMessages([...userMessages,sentMessage]);}
+        
     return(
         <>
         <div id = 'single-post-container'>
         <h3>Title: {selectedPost.title}</h3>
          <p>Description: {selectedPost.description}</p>
          <p><b>Price :</b>{selectedPost.price}</p>
-         <p><strong>Seller : {selectedPost.author} </strong></p>
+         <p><strong>Seller : {selectedPost.author.username} </strong></p>
          <p>Location : {selectedPost.location}</p> 
-         <input type="text" name="message" value={message} onChange={(event) => setLocation(event.target.value)} placeholder="Message Text Here"></input>
-         <span><button>Send Message</button></span>
+         <input type="text" name="message" value={message} onChange={(event) => setMessage(event.target.value)} placeholder="Message Text Here"></input>
+         <span><button onClick={handleClick}>Send Message</button></span>
         </div>
          
         </>

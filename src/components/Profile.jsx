@@ -2,24 +2,24 @@ import React from "react"
 import MessageTo from "./MessageTo";
 import MessageFrom from "./MessageFrom";
 const Profile = (props) => {
-    const {postsList, setPostsList, User} = props;
+    const {postsList, setPostsList, userMessages, setUserMessages} = props;
     return(
         <>
         <div><h1>Messages To Me</h1>
-         {postsList.map((post,messages) => {
+         {userMessages.map((message, index) => {
                 return (
-                <div key={messages}>
-                    <MessageTo  post = {post} />
+                <div key={index}>
+                    <MessageTo  message = {message} />
                 </div>
          );
         })}
         </div>
         <div><h1>Messages From Me</h1>
-              {postsList.map((post,messages) => {
-                if(isAuthor)
+              {userMessages.map((message, index) => {
+               
                      return (
-                     <div key={messages}>
-                         <MessageFrom  post = {post} />
+                     <div key={index}>
+                         <MessageFrom  message = {message} />
                      </div>
               );
              })}

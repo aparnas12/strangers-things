@@ -33,7 +33,7 @@ const SinglePostView = (props) => {
           >View Post</button> //exposing the view post and not send message if the post is authored by logged in user aka current user in the state
           : 
           <button
-          onClick ={() => {navigate('/SendMessageView')}}
+          onClick ={() => { setSelectedPost(post); navigate('/SendMessageView')}}
           >View Post or Send Message</button> //the send message is exposedi if post is authored by someone else. Allows logged in user to send a message to seller or just view the post again
           : <><br></br></>
           }

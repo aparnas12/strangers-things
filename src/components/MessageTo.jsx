@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 
 const MessageTo = (props) => {
-  const {post} = props
+  const {message, post} = props
  
   
   const navigate = useNavigate();
@@ -15,10 +15,10 @@ const MessageTo = (props) => {
     return (
       
       <div className="user-post-preview">
-        <h2>From: {post.author.username} </h2>
+        <h2>From: {message.fromUser} </h2>
           <div>
-            <h2> {post.title} </h2>
-            <p>{ post.description }</p>
+            <h2> {message.content} </h2>
+            {/* <p>{ post.description }</p> */}
             <button onClick={handleClick}>View My Post</button>
           </div>
           
