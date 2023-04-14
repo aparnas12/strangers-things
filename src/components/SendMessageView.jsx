@@ -1,12 +1,14 @@
 import React from "react"
 import {useState} from "react"
-import { postMessage } from "../api";
+import { postMessage, getMe } from "../api";
+import { useNavigate } from "react-router-dom";
 
 const SendMessageView = (props) => {
 
     
-    const {isLoggedIn,currentUser, selectedPost, userMessages, userPosts, getMe, token, setUserMessages} = props;
-    const [message, setMessage] = useState('')
+    const {isLoggedIn,currentUser, selectedPost, userMessages, userPosts, token, setUserMessages} = props;
+    const [message, setMessage] = useState('');
+    const navigate = useNavigate();
     const  handleClick = async(event) => {
         event.preventDefault();
     
@@ -19,7 +21,12 @@ const SendMessageView = (props) => {
         const sentMessage = await postMessage (messageToSend, token, selectedPost._id);
         console.log("Message Sent : ",sentMessage)
        
-        setUserMessages([...userMessages,sentMessage]);}
+        setUserMessages([...userMessages,sentMessage]);
+        const fetchedUser = await getMe(token);
+        setUserMessages(fetchedUser.data.messages);
+       
+        navigate('/Profile');
+    }
         
     return(
         <>
