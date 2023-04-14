@@ -14,8 +14,8 @@ const Main = () => {
   const [token, setToken] = useState(localStorage.getItem("token"));
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [selectedPost, setSelectedPost] = useState({});
-  const [userMessages, setUserMessages] = useState([]);
   const [userPosts, setUserPosts] = useState([]);
+  const [userMessages, setUserMessages] = useState([]);
 
 
 useEffect(() => {
@@ -75,7 +75,7 @@ useEffect(() => {
           setIsLoggedIn={setIsLoggedIn} />}/>
 
           <Route path='/Profile' element={<Profile postsList={postsList} 
-          setPostsList={setPostsList}/>}/>
+          setPostsList={setPostsList} userMessages={userMessages} setUserMessages={setUserMessages} userPosts={userPosts} setUserPosts={setUserPosts} />}/>
 
           <Route path='/Home' element={<Home isLoggedIn ={isLoggedIn} 
           currentUser = {currentUser}/>}/>
@@ -102,7 +102,7 @@ useEffect(() => {
           <Route path='/SendMessageView' element={<SendMessageView postsList={postsList} 
           setPostsList={setPostsList} 
           selectedPost = {selectedPost} 
-          setSelectedPost = {setSelectedPost} />}/>
+          setSelectedPost = {setSelectedPost} userPosts={userPosts} setUserPosts={setUserPosts} userMessages={userMessages} setUserMessages={setUserMessages} token={token} />}/>
 
           <Route path ='/PostDetailedView' element ={<PostDetailedView selectedPost = {selectedPost} 
           setSelectedPost = {setSelectedPost}  
