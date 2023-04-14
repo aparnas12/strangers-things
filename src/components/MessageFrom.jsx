@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 
 const MessageFrom = (props) => {
-  const {post} = props
+  const [message] = props
   
   // const title = props.title
   // const description = props.description
