@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 
 const MessageTo = (props) => {
-  const {message, post, currentUser} = props
+  const {message, postId, currentUser} = props
  
   
 
@@ -16,7 +16,9 @@ const MessageTo = (props) => {
         <>
         <h2>From: {message.fromUser.username} </h2>
           <div>
-            <h2> {message.content} </h2>
+            <h2>Post Title : {postId.title}</h2>
+            <h2> Message: {message.content} </h2>
+            
             {/* <p>{ post.description }</p> */}
           </div>
           </>
