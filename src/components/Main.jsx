@@ -75,7 +75,7 @@ useEffect(() => {
           setIsLoggedIn={setIsLoggedIn} />}/>
 
           <Route path='/Profile' element={<Profile postsList={postsList} 
-          setPostsList={setPostsList} userMessages={userMessages} setUserMessages={setUserMessages} userPosts={userPosts} setUserPosts={setUserPosts} />}/>
+          setPostsList={setPostsList} userMessages={userMessages} setUserMessages={setUserMessages} userPosts={userPosts} setUserPosts={setUserPosts} currentUser={currentUser} setCurrentUser={setCurrentUser}/>}/>
 
           <Route path='/Home' element={<Home isLoggedIn ={isLoggedIn} 
           currentUser = {currentUser}/>}/>
