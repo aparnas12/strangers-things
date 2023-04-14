@@ -13,12 +13,11 @@ const Header = ({ setCurrentUser, setToken, setIsLoggedIn, isLoggedIn }) => {
                     <NavLink to="/AllPosts" className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "active" : ""}>Posts</NavLink>
                     <NavLink to="/RegisterUser" className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "active" : ""}>Register</NavLink>
                     <NavLink to="/Profile" className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "active" : ""}>Profile</NavLink>
-                    {/* <NavLink to="/LoginPage" className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "active" : ""}>Log Out</NavLink> */}
+                    
                     {isLoggedIn ?
                         <button
                             onClick={() => {
-                                setIsLoggedIn(false);
-                                console.log("login is set to false");
+                                setIsLoggedIn(false); 
                                 setCurrentUser('');
                                 setToken('');
                                 localStorage.removeItem('currentUser');

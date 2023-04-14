@@ -12,7 +12,7 @@ const [title, setTitle] =useState('');
 const [description,setDescription] =useState('');
 const [price, setPrice] =useState('');
 const [location, setLocation] =useState('[On Request]');
-console.log("I am entering create new post");
+
 const navigate = useNavigate();
 
 const handleChange = () => {
@@ -43,8 +43,11 @@ const handleChange = () => {
         <form onSubmit={handleSubmit} id='add-post-form'>
             <label htmlFor=" title">Title</label>
             <input type ="text" name ="title" value ={title} onChange={(event) => setTitle(event.target.value)} placeholder="Title" required/>
+            <label htmlFor=" description">Description</label>
             <input type ="text" name ="description" value ={description} onChange={(event) => setDescription(event.target.value)}placeholder="Description" required/>
+            <label htmlFor=" price">Price</label>
             <input type ="text" name ="price" value ={price} onChange={(event) => setPrice(event.target.value)} placeholder = "Price" required/>
+            <label htmlFor=" location">Location</label>
             <input type ="text" name ="location" value ={location} onChange={(event) => setLocation(event.target.value)}placeholder="Enter a location"/>  
             <input type="checkbox" 
                    name ="willdeliver" 

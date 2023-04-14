@@ -1,5 +1,5 @@
 import React from "react";
-const EditPost = () => {
+const EditPost = () => { //for future implementation
     return (
         <>
         <h2> Edit Post</h2>
