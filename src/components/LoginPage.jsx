@@ -19,26 +19,33 @@ const LoginPage = ({
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-   //short version of above?
+
     const userToAuth = { user: { username: username, password: password } };
-    
+
     const data = await loginUser(userToAuth);
     console.log(data);
- //if token is returne then a user exist?
+    if (!data){
 
-    if (data.token) {
-      setToken(data.token);
-      console.log(data.token);
-      setCurrentUser(username);
-      console.log(username);
-      setIsLoggedIn(true); 
-      console.log("login is set to true");
-      setUsername('');
-      setPassword('');
-      navigate('/Home'); 
+      window.alert("Invalid credentials, Username or Password is incorrect");
+    }  
+    else{
+        //if token is returned then the user exists
+      if (data.token) {
+        setToken(data.token);
+        console.log(data.token);
+        setCurrentUser(username);
+        console.log(username);
+        localStorage.setItem("currentUser", username);
+        localStorage.setItem("token", data.token);
+        setIsLoggedIn(true);
+        console.log("login is set to true");
+        setUsername('');
+        setPassword('');
+        navigate('/Home');
+      }
+
     }
-   
-   
+
   }
 
   return (

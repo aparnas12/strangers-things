@@ -3,7 +3,7 @@ export function storeCurrentUser(user) {
 
   }
   
-  export function storeCurrenToken(token){
+  export function storeCurrentToken(token){
     localStorage.setItem('token', token);
   }
   export function getCurrentUser() {

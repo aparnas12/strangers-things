@@ -62,7 +62,7 @@ export const loginUser = async (userObject) => {
 
 
 export const addNewPost = async (newPostObj, token) => {
-  console.log("new post object", newPostObj, "token" , token);
+ 
   try {
     
     const response = await fetch(`${BASE}/posts`, {
@@ -76,8 +76,8 @@ export const addNewPost = async (newPostObj, token) => {
     console.log(response);
     const result = await response.json();
     console.log("The result of addNewPost is: ",result);
-    return "result";
-   // return result;
+   
+  return result;
   } catch (err) {
     console.error(err);
   }
@@ -108,6 +108,26 @@ export const registerUser = async (userObject) => {
       return { name, message };
     }
     console.log(success, error, data);
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+export const deletePost = async (postId, token) => {
+
+  try {
+    
+    const response = await fetch(`${BASE}/posts/${postId}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`
+      },
+    });
+
+    const result = await response.json();
+    console.log(result);
+    return result;
   } catch (error) {
     console.error(error);
   }

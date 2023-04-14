@@ -104,10 +104,13 @@ useEffect(() => {
           selectedPost = {selectedPost} 
           setSelectedPost = {setSelectedPost} userPosts={userPosts} setUserPosts={setUserPosts} userMessages={userMessages} setUserMessages={setUserMessages} token={token} />}/>
 
-          <Route path ='/PostDetailedView' element ={<PostDetailedView selectedPost = {selectedPost} 
+          <Route path ='/PostDetailedView' element ={<PostDetailedView postsList={postsList} 
+          setPostsList = {setPostsList} selectedPost = {selectedPost} 
           setSelectedPost = {setSelectedPost}  
           isLoggedIn ={isLoggedIn} 
-          setIsLoggedIn={setIsLoggedIn}/>}/>
+          setIsLoggedIn={setIsLoggedIn}
+          currentUser ={currentUser} 
+          token = {token}/>}/>
       </Routes>
     
        

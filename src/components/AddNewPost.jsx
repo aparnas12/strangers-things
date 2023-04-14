@@ -1,30 +1,10 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import {addNewPost} from '../api';
+import {addNewPost,getAllPosts} from '../api';
 
 
 const AddNewPost = (props) => {
 
-
- const fakePost= {
-    "location": "fairfax",
-    "willDeliver": false,
-    "messages": [],
-    "active": true,
-    "_id": "642762a8cd3bfb001620064e",
-    "author": {
-      "_id": "642762a8cd3bfb0016200648",
-      "username": "KodaOwner"
-    },
-    "cohort": "642762a8cd3bfb0016200646",
-    "title": "Puppy for adoption",
-    "description": "very cute puppy fnding new home",
-    "price": "free",
-    "createdAt": "2023-03-31T22:46:00.837Z",
-    "updatedAt": "2023-03-31T22:46:00.880Z",
-    "__v": 0,
-    "isAuthor": true
-  }
 
 const  {postsList , setPostsList , isLoggedIn , currentUser,token} = props;
 const [willDeliver, setWillDeliver] = useState(false);
@@ -52,13 +32,10 @@ const handleChange = () => {
       } 
       };
     const newPost = await addNewPost(postToAdd, token);
-    console.log("new post created : ",newPost)
-    //temp solution
-    // setPostsList([...postsList,fakePost]);
-
-    //real solution should be
     setPostsList([...postsList,newPost]);
-   navigate('/AllPosts');
+    let allPosts = await getAllPosts();
+    setPostsList(allPosts);
+     navigate('/AllPosts');
   }
     return (
         <>
