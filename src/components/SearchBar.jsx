@@ -19,6 +19,7 @@ const SearchBar = (props) => {
                 type="text"
                 name="searchposts"
                 value={searchForPost}
+                placeholder="Search By Title"
                 onChange={(event) => setSearchForPost(event.target.value)}
             />
             <button
