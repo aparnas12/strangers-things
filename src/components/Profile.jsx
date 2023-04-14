@@ -2,9 +2,10 @@ import React from "react"
 import MessageTo from "./MessageTo";
 import MessageFrom from "./MessageFrom";
 const Profile = (props) => {
-    const {postsList, setPostsList, userMessages, setUserMessages, userPosts, setUserPosts, currentUser} = props;
+    const {postsList, setPostsList, userMessages, setUserMessages, userPosts, setUserPosts, currentUser, isLoggedIn} = props;
     return(
         <>
+        { isLoggedIn ?
         <div><h1>Messages To Me</h1>
          {userMessages.map((message, index) => {
                 return (
@@ -14,7 +15,18 @@ const Profile = (props) => {
          );
         })}
         </div>
-        {/* <div><h1>Messages From Me</h1>
+        
+            :
+            <>
+            <h2>Please Log In!</h2></>
+            };
+        </>
+    );
+}
+
+export default Profile;
+
+{/* <div><h1>Messages From Me</h1>
               {userMessages.map((message, index) => {
                
                      return (
@@ -24,8 +36,3 @@ const Profile = (props) => {
               );
              })}
              </div> */}
-        </>
-    );
-}
-
-export default Profile;
