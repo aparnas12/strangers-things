@@ -5,8 +5,7 @@ import { useNavigate } from "react-router-dom";
 const MessageFrom = (props) => {
   const {message, currentUser, postId, userPosts, setSelectedPost} = props
   console.log(postId, "Im in Message From!")
-  // const title = props.title
-  // const description = props.description
+  
   const navigate = useNavigate();
   function handleClick(){
      
@@ -19,6 +18,7 @@ const MessageFrom = (props) => {
          <>
         <h2> Sent By Me </h2>
           <div>
+            <h3>Post Title : {postId.title} </h3>
             <p>{ message.content }</p>
             <button onClick={handleClick}>Send Message</button>
           </div>

@@ -12,7 +12,7 @@ const Profile = (props) => {
          {userMessages.map((message, index) => {
                 return (
                 <div className="message-box" key={index}>
-                    <MessageTo currentUser = {currentUser} userPosts = {userPosts} message = {message} />
+                    <MessageTo currentUser = {currentUser} userPosts = {userPosts} message = {message} postId = {message.post}/>
                 </div>
          );
         
