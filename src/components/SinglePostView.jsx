@@ -5,13 +5,13 @@ import React from 'react';
 const SinglePostView = (props) => {
 
     const {isLoggedIn,currentUser, post,setSelectedPost} = props;
+    console.log("current poet in single view is :",post);
     const navigate = useNavigate();
-const checkAuthor = (currUser, author) => 
-{
-   console.log('currentuser is:', currentUser);
-   console.log('current author is : ',author);
-    return (currUser === author );
-}
+    const checkAuthor = (currUser, author) => 
+    {
+    
+        return (currUser === author );
+    }
 
     return(
         <>
@@ -22,7 +22,7 @@ const checkAuthor = (currUser, author) =>
          <p><strong>Seller : {post.author.username} </strong></p>
          <p>Location : {post.location}</p> 
     
-          {isLoggedIn ? 
+          {isLoggedIn ? //this section is only available to authenticated users
           checkAuthor(currentUser, post.author.username) 
           ? <button
           onClick = {()=>{
@@ -30,8 +30,11 @@ const checkAuthor = (currUser, author) =>
             console.log("I am setting the selected post to :",post.title );
             navigate('/PostDetailedView')
           }}
-          >View Post</button> 
-          : <button>Send Message</button> 
+          >View Post</button> //exposing the view post and not send message if the post is authored by logged in user aka current user in the state
+          : 
+          <button
+          onClick ={() => {navigate('/SendMessageView')}}
+          >View Post or Send Message</button> //the send message is exposedi if post is authored by someone else. Allows logged in user to send a message to seller or just view the post again
           : <><br></br></>
           }
         </div>
@@ -41,13 +44,4 @@ const checkAuthor = (currUser, author) =>
 }
 
 export default SinglePostView;
-
-/*
-note to self : when View Post is clicked setSelectedPost to post and then navigat to Post Detailed View . 
-now when u reach the detailed you will have access to apost to display details of
-then you should have a delte button that can be clicked to deleet the post 
-
-
-
-*/
 
